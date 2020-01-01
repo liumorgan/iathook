@@ -7,7 +7,7 @@ sample for windows usermode
 #include <windows.h>
 
 
-LONG IATHook(
+LONG __cdecl IATHook(
 	__in_opt void* pImageBase ,
 	__in_opt char* pszImportDllName ,
 	__in char* pszRoutineName ,
@@ -15,9 +15,9 @@ LONG IATHook(
 	__out HANDLE* phHook
 );
 
-LONG UnIATHook( __in HANDLE hHook );
+LONG __cdecl UnIATHook( __in HANDLE hHook );
 
-void* GetIATHookOrign( __in HANDLE hHook );
+void* __cdecl GetIATHookOrign( __in HANDLE hHook );
 
 typedef int (__stdcall *LPFN_MessageBoxA)( __in_opt HWND hWnd , __in_opt char* lpText , __in_opt char* lpCaption , __in UINT uType);
 
